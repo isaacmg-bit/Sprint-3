@@ -38,9 +38,14 @@ function orderAlphabetically(array) {
 orderAlphabetically(movies);
 
 // Exercise 5: Order by year, ascending
-function orderByYear() {
-
+function orderByYear(array) {
+  let allMovies = array.map (movie => movie.year + ": " + movie.title);
+  let moviesPerYear = allMovies.sort();
+  console.log("EXERCICE 5 ->", moviesPerYear );
+  return moviesPerYear;
 }
+
+orderByYear(movies);
 
 // Exercise 6: Calculate the average of the movies in a category
 function moviesAverageByCategory() {
