@@ -28,8 +28,14 @@ moviesAverageOfDirector(movies, "Francis Ford Coppola" );
 
 // Exercise 4:  Alphabetic order by title 
 function orderAlphabetically(array) {
-  
+  let allMovies = array.map (movie => movie.title);
+  let twentyFirstMovies = allMovies.sort ();
+  twentyFirstMovies.length = 20;
+  console.log("EXERCICE 4 ->", twentyFirstMovies );
+  return twentyFirstMovies;
 }
+
+orderAlphabetically(movies);
 
 // Exercise 5: Order by year, ascending
 function orderByYear() {
