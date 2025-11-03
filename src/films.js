@@ -28,8 +28,8 @@ moviesAverageOfDirector(movies, "Francis Ford Coppola" );
 
 // Exercise 4:  Alphabetic order by title 
 function orderAlphabetically(array) {
-  let allMovies = array.map (movie => movie.title);
-  let twentyFirstMovies = allMovies.sort ();
+  let allMoviesByTitle = array.map (movie => movie.title);
+  let twentyFirstMovies = allMoviesByTitle.sort ();
   twentyFirstMovies.length = 20;
   console.log("EXERCICE 4 ->", twentyFirstMovies );
   return twentyFirstMovies;
@@ -48,9 +48,14 @@ function orderByYear(array) {
 orderByYear(movies);
 
 // Exercise 6: Calculate the average of the movies in a category
-function moviesAverageByCategory() {
-
+function moviesAverageByCategory(array, genre) {
+  let allMoviesByGenre = array.filter(movie => movie.genre.includes(genre)).map (movie => movie.score);
+  let avgFilmScoreByGenre = allMoviesByGenre.reduce ((totalScore, individualScore) => {return totalScore + individualScore}, 0) / allMoviesByGenre.length; 
+  console.log("EXERCICE 6 ->", avgFilmScoreByGenre );
+  return avgFilmScoreByGenre;
 }
+
+moviesAverageByCategory(movies, "Western");
 
 // Exercise 7: Modify the duration of movies to minutes
 function hoursToMinutes() {
