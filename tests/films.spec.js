@@ -291,12 +291,17 @@ describe('Function "orderByYear"', () => {
 });
 
 // Exercise 6
-// YOUR CODE HERE. Test moviesAverageByCategory()
 describe('Function "moviesAverageByCategory"', () => {
-  it('ADD YOUR CODE IN films.spec.js file', () => {
-    expect(typeof hoursToMinutes).toBe('coffee');
+  it('should be declared', () => {
+    expect(typeof moviesAverageByCategory).toBe('function');
   });
-});
+
+  it('should return a number with two decimals', () => {
+    const moviesAverage = moviesAverageByCategory(movies, "Drama");
+    expect(typeof moviesAverage).toBe(typeof 8);
+  });
+
+  });
 
 // Exercise 7
 describe('Function "hoursToMinutes"', () => {

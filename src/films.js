@@ -7,7 +7,7 @@ function getAllDirectors(array) {
 
 // Exercise 2: Get the films of a certain director
 function getMoviesFromDirector(array, director) {
-  let allMoviesByDirector = array.filter(movie => movie.director === director).map (movie => movie.title) ;
+  let allMoviesByDirector = array.filter(movie => movie.director === director);
   console.log("EXERCICE 2 ->", allMoviesByDirector );
   return allMoviesByDirector;
 }
@@ -43,8 +43,8 @@ function orderByYear(array) {
 function moviesAverageByCategory(array, genre) {
   let allMoviesByGenre = array.filter(movie => movie.genre.includes(genre)).map (movie => movie.score);
   let avgFilmScoreByGenre = allMoviesByGenre.reduce ((totalScore, individualScore) => {return totalScore + individualScore}, 0) / allMoviesByGenre.length; 
-  console.log("EXERCICE 6 ->", avgFilmScoreByGenre );
-  return avgFilmScoreByGenre;
+  console.log("EXERCICE 6 ->", avgFilmScoreByGenre.toFixed(2) );
+  return Number(avgFilmScoreByGenre.toFixed(2));
 }
 
 
