@@ -1,3 +1,5 @@
+const movies = require("./data");
+
 // Exercise 1: Get the array of all directors.
 function getAllDirectors(array) {
   let allDirectors =  array.map(name => name.director);
@@ -33,7 +35,6 @@ function orderAlphabetically(array) {
   return twentyFirstMovies;
 }
 
-
 // Exercise 5: Order by year, ascending
 function orderByYear(array) {
   let allMovies = array.map (movie => {return {title: movie.title,  year: movie.year}});
@@ -59,18 +60,30 @@ function moviesAverageByCategory(array, genre) {
   return Number(avgFilmScoreByGenre.toFixed(2));
 }
 
-
 // Exercise 7: Modify the duration of movies to minutes
-function hoursToMinutes() {
+function hoursToMinutes(array) {
 
+  return array.map(movie => {
+    let movieDuration = movie.duration;
+    let hours = Number(movieDuration.charAt(0)) * 60;
+    let minutes = Number(movieDuration.charAt(3) + movieDuration.charAt(4));
+
+    if (isNaN(minutes)) {
+      minutes = 0;
+    }
+
+    let totalMinutes = hours + minutes;
+    return {...movie, duration: totalMinutes};
+  });
 }
 
 // Exercise 8: Get the best film of a year
-function bestFilmOfYear() {
-  
+function bestFilmOfYear(array, yearInput) {
+  const moviesOfYear = array.filter(movie => movie.year === yearInput);
+  const moviesSorted = moviesOfYear.sort((a, b) => b.score - a.score);
+  const bestFilm = moviesSorted[0];
+  return [bestFilm];
 }
-
-
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
